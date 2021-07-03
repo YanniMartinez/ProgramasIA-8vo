@@ -23,7 +23,7 @@ def prepo(listaExp, listaOperadores, listaOperando):
 	@param
 	
 	 """
-	resultado = "X" #Significa que hubo un error
+	resultado = "X Su expresión no está bien formada" #Significa que hubo un error
 	if(len(listaOperadores) > 0 and len(listaOperando)>0):
 		#Hace la operación.
 		print("Entre por recursividad")
@@ -81,9 +81,9 @@ def prepo(listaExp, listaOperadores, listaOperando):
 			listaOperando.append(elemento)
 
 		elif elemento == "(":
-			print("Soy un parentesis ( = "+elemento)
-			listaOperando.append(elemento)
-
+			#print("Soy un parentesis ( = "+elemento)
+			#listaOperando.append(elemento)
+			pass
 		else:
 			print("Su expresión no está bien estructurada, el programa finalizará ... ")
 			break
@@ -127,5 +127,19 @@ Expresiones Testeadas
 ( F <=> V ) = F
 ( F <=> F ) = V
 
-( V v ( V ^ F ) )
- """
+( V v ( V ^ F ) )  = V
+
+( V v ( V ^ F ) => ( F ^ V ) ) = V
+  V        F     V      F     = V
+
+( V <=> ( V v F ) => ( F v V ) ) = V
+  V  |V|    V     |V|     V      = V
+
+( V <=> ( V v F ) => ( F v V ) v F ) = V
+
+( V <=> ( V v F ) => ( F v V ) ^ F <=> V ) = F
+
+F <=> V ^ ( F v F ) => ( V ^ V ) <=> ( F <=> F ) = V
+
+( F v F
+"""
